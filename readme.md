@@ -22,10 +22,6 @@ streamlit run streamlit_app.py
 docker-compose up -d
 ```
 
-## 📱 App Preview
-
-![AI Data Analytics Agent Dashboard](ai%20agent.png)
-
 ## 🎯 Overview
 
 **AI Data Analytics Agent** is a production-ready analytics platform that combines the power of local LLMs (via Ollama) with an intuitive Streamlit interface. The system provides comprehensive data analysis capabilities including descriptive analytics, predictive modeling, data cleaning, and custom AI-powered insights with isolated virtual environment management.
@@ -238,38 +234,6 @@ print(f'Model: {agent.model_name}')
 - [ ] Check timeout handling for large datasets
 - [ ] Validate upload path configuration
 
-## 🔧 Troubleshooting
-
-### Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| **Ollama connection error** | Verify `OLLAMA_HOST` and ensure Ollama is running |
-| **Read-only file system error** | Check upload path configuration, use `/tmp/app_uploads` |
-| **Long-running analysis** | Implemented timeout protection, check model performance |
-| **Port 8501 conflict** | Change port mapping in docker-compose or stop conflicting service |
-| **Out of memory** | Use data sampling for large files, increase container memory |
-
-### Advanced Configuration
-
-#### Persistent Upload Storage
-
-```yaml
-# Add to docker-compose.production.yml
-volumes:
-  - ./data:/app/data:ro
-  - ./uploads:/tmp/app_uploads  # Persistent uploads
-```
-
-#### Custom Model Configuration
-
-```yaml
-# Environment variables
-environment:
-  - OLLAMA_HOST=http://your-ollama-host:11434
-  - OLLAMA_PREFERRED_MODEL=your-preferred-model
-```
-
 ## 📊 Performance Metrics
 
 - **Startup Time**: ~30 seconds (including model loading)
@@ -293,52 +257,6 @@ environment:
 - [ ] Integration with cloud storage providers
 - [ ] Advanced caching mechanisms
 - [ ] Real-time collaboration features
-
-## � Troubleshooting Guide
-
-### Common Issues & Solutions
-
-#### 1. Port 8501 Already in Use
-```bash
-# Find process using port 8501
-sudo lsof -ti:8501
-
-# Kill the process
-sudo lsof -ti:8501 | xargs kill -9
-
-# Verify port is free
-netstat -an | grep 8501
-```
-
-#### 2. Ollama Connection Issues
-**Symptoms**: AI analysis not working, "LLM not available" messages
-**Solutions**:
-- Ensure Ollama is running: `ollama serve`
-- Check Ollama models: `ollama list`
-- Install required model: `ollama pull llama2`
-
-#### 3. File Upload Problems
-```bash
-# Check data directory permissions
-ls -la data/
-
-# Fix permissions if needed
-chmod 755 data/
-```
-
-#### 4. Container Health Issues
-```bash
-# Check container status
-docker-compose -f docker-compose.production.yml ps
-
-# View container logs
-docker-compose -f docker-compose.production.yml logs streamlit-app
-
-# Restart containers
-docker-compose -f docker-compose.production.yml restart
-```
-
-## 📊 Performance Metrics
 
 ### Benchmark Results
 - **Data Processing**: Handles datasets up to 10GB efficiently
@@ -387,43 +305,5 @@ docker-compose -f docker-compose.production.yml restart
 - Student project development
 - Research methodology training
 
-## �👨‍💻 Author & License
-
-All code and content in this repository is for educational and personal use.
-
-**Somesh Ramesh Ghaturle**  
-MS in Data Science, Pace University
-
-📧 **Email:** [someshghaturle@gmail.com](mailto:someshghaturle@gmail.com)  
-🐙 **GitHub:** [https://github.com/somesh-ghaturle](https://github.com/somesh-ghaturle)  
-💼 **LinkedIn:** [https://www.linkedin.com/in/someshghaturle/](https://www.linkedin.com/in/someshghaturle/)
-
-### 📄 MIT License
-
-```text
-MIT License
-
-Copyright (c) 2025 Somesh Ramesh Ghaturle
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
 
 ### Built with ❤️ using Streamlit, Ollama, and Python
