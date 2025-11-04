@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Copy application
+COPY . /app
+
+ENV PYTHONUNBUFFERED=1
+
+# Expose Cloud Run port
+EXPOSE 8080
+
+# Create a non-root user, add a healthcheck script and give ownership of the app dir
+RUN adduser --disabled-password --gecos "" appuser && \
+    mkdir -p /app && \
+    printf 'import sys, urllib.request as u\ntry:\n    u.urlopen("http://127.0.0.1:8080", timeout=3)\n    u.urlopen("http://host.docker.internal:11434/v1/models", timeout=3)\nexcept Exception:\n    sys.exit(1)\nsys.exit(0)\n' > /app/healthcheck.py && \
+    chown -R appuser:appuser /app
+
+# Healthcheck: ensure Streamlit is responding and Ollama is reachable from inside the container
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD ["python3","/app/healthcheck.py"]
+
+USER appuser
+
+CMD ["streamlit", "run", "web_ui.py", "--server.port=8080", "--server.address=0.0.0.0"]
+
