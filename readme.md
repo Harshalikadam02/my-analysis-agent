@@ -24,7 +24,12 @@ docker-compose up -d
 
 ## 📱 App Preview
 
-![AI Data Analytics Agent Dashboard](ai%20agent.png)
+<img width="1470" height="956" alt="analysis ss1" src="https://github.com/user-attachments/assets/680fd103-25cd-4593-a5e8-32e08105a75d" />
+<img width="1470" height="956" alt="analysis ss2" src="https://github.com/user-attachments/assets/864a9f5e-7b1c-45da-98f3-8fdbfb4994e3" />
+<img width="1470" height="956" alt="analysis ss3" src="https://github.com/user-attachments/assets/d5783a82-b6ad-4583-93c5-cfd8391ba90d" />
+<img width="1470" height="956" alt="analysis ss4" src="https://github.com/user-attachments/assets/1294657c-5add-48c9-858c-c9d471613dab" />
+<img width="1470" height="956" alt="analysis ss 5" src="https://github.com/user-attachments/assets/9efae369-47f1-4ae7-84b7-4f67f53200a7" />
+
 
 ## 🎯 Overview
 
@@ -169,21 +174,6 @@ print(f"Analysis: {result.analysis}")
 | `OLLAMA_PREFERRED_MODEL` | Preferred model for auto-selection | `llama3.2` |
 | `APP_UPLOAD_DIR` | Upload directory path | `/tmp/app_uploads` |
 
-### File Structure
-
-```text
-AI Data Analytics Agent/
-├── 🚀 web_ui.py                      # Streamlit web interface
-├── 🤖 analytics_core.py              # Core analytics engine
-├── 🐳 docker-compose.production.yml  # Production deployment
-├── 📦 Dockerfile.production          # Production container build
-├── 📋 requirements.txt               # Python dependencies
-├── 🧪 tests/                         # Automated tests
-│   ├── ui_playwright_smoke.py        # UI smoke test
-│   └── ui_smoke_result.png           # Test screenshot
-└── 📁 data/                          # Data directory (mounted read-only)
-```
-
 ## 🛠️ Development Setup
 
 ### Local Development
@@ -310,22 +300,6 @@ sudo lsof -ti:8501 | xargs kill -9
 netstat -an | grep 8501
 ```
 
-#### 2. Ollama Connection Issues
-**Symptoms**: AI analysis not working, "LLM not available" messages
-**Solutions**:
-- Ensure Ollama is running: `ollama serve`
-- Check Ollama models: `ollama list`
-- Install required model: `ollama pull llama2`
-
-#### 3. File Upload Problems
-```bash
-# Check data directory permissions
-ls -la data/
-
-# Fix permissions if needed
-chmod 755 data/
-```
-
 #### 4. Container Health Issues
 ```bash
 # Check container status
@@ -387,43 +361,14 @@ docker-compose -f docker-compose.production.yml restart
 - Student project development
 - Research methodology training
 
-## �👨‍💻 Author & License
+## �👨‍💻 Author
 
 All code and content in this repository is for educational and personal use.
 
-**Somesh Ramesh Ghaturle**  
-MS in Data Science, Pace University
+**Harshali Suresh Kadam**  
+MS in Computer Science, Pace University
 
-📧 **Email:** [someshghaturle@gmail.com](mailto:someshghaturle@gmail.com)  
-🐙 **GitHub:** [https://github.com/somesh-ghaturle](https://github.com/somesh-ghaturle)  
-💼 **LinkedIn:** [https://www.linkedin.com/in/someshghaturle/](https://www.linkedin.com/in/someshghaturle/)
-
-### 📄 MIT License
-
-```text
-MIT License
-
-Copyright (c) 2025 Somesh Ramesh Ghaturle
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
+📧 **Email:** [harshalikadam58@gmail.com] 
+💼 **LinkedIn:** [https://www.linkedin.com/in/harshali-kadam/]
 
 ### Built with ❤️ using Streamlit, Ollama, and Python
