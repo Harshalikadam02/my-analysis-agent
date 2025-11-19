@@ -23,13 +23,9 @@ docker-compose up -d
 ```
 
 ## 📱 App Preview
-
+DEMO VIDEO - https://youtu.be/F7K_Qw8KRoA
 <img width="1470" height="956" alt="analysis ss1" src="https://github.com/user-attachments/assets/680fd103-25cd-4593-a5e8-32e08105a75d" />
 <img width="1470" height="956" alt="analysis ss2" src="https://github.com/user-attachments/assets/864a9f5e-7b1c-45da-98f3-8fdbfb4994e3" />
-<img width="1470" height="956" alt="analysis ss3" src="https://github.com/user-attachments/assets/d5783a82-b6ad-4583-93c5-cfd8391ba90d" />
-<img width="1470" height="956" alt="analysis ss4" src="https://github.com/user-attachments/assets/1294657c-5add-48c9-858c-c9d471613dab" />
-<img width="1470" height="956" alt="analysis ss 5" src="https://github.com/user-attachments/assets/9efae369-47f1-4ae7-84b7-4f67f53200a7" />
-
 
 ## 🎯 Overview
 
@@ -368,7 +364,8 @@ All code and content in this repository is for educational and personal use.
 **Harshali Suresh Kadam**  
 MS in Computer Science, Pace University
 
-📧 **Email:** [harshalikadam58@gmail.com] 
-💼 **LinkedIn:** [https://www.linkedin.com/in/harshali-kadam/]
+**Email:** [harshalikadam58@gmail.com] 
+**LinkedIn:** [https://www.linkedin.com/in/harshali-kadam/]
+**Portfolio** [https://harshali-portfolio-two.vercel.app]
 
 ### Built with ❤️ using Streamlit, Ollama, and Python
